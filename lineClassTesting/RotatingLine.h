@@ -4,7 +4,7 @@
 
 class RotatingLine{
     private:
-        sf::Vector2f    	point1, point2;
+		sf::Vertex			lineVert[2];
         sf::Vector2f    	rotatingCenter;
         sf::Color      		lineCol;
 		sf::RenderWindow*	rWindow = NULL;
