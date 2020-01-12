@@ -16,6 +16,7 @@ int main(){
 	
 	rotLine.coutData();
 
+
 	while(window.isOpen()){
 
 		sf::Event event;

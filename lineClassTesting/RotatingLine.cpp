@@ -10,6 +10,8 @@ RotatingLine::RotatingLine(sf::Vector2f point1, sf::Vector2f point2, sf::Vector2
 	
 	lineVert[0] = sf::Vertex(point1, lineCol);
 	lineVert[1] = sf::Vertex(point2, lineCol);
+
+	initRotCenShape();
 }
   
 void RotatingLine::coutData(){
@@ -31,4 +33,20 @@ void RotatingLine::drawLine(){
 
 	rWindow->draw(lineVert, 2 , sf::Lines);	
 
+}
+
+void RotatingLine::initRotCenShape(){
+
+	rotCenterShape.setRadius(rotCenterRadius);
+	rotCenterShape.setFillColor(rotCenterColor);
+	rotCenterShape.setPosition(rotatingCenter);	
+
+}
+
+void RotatingLine::drawRotCenter(float radius){
+	
+	sf::CircleShape point;
+	
+//	rWindow->draw();	
+	
 }
