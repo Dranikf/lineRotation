@@ -10,7 +10,7 @@ int main(){
 
 
 	sf::RenderWindow window(sf::VideoMode(windWidth, windHeigth), "hello line");
-	RotatingLine rotLine(sf::Vector2f(20.f, 20.f), sf::Vector2f(40.f, 40.f), sf::Vector2f(30.f, 30.f));
+	RotatingLine rotLine(sf::Vector2f(20.f, 20.f), sf::Vector2f(70.f, 70.f), sf::Vector2f(30.f, 30.f));
 	
 	rotLine.setRenderWindow(&window);
 	

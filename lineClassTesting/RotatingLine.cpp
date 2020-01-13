@@ -12,6 +12,7 @@ RotatingLine::RotatingLine(sf::Vector2f point1, sf::Vector2f point2, sf::Vector2
 	lineVert[1] = sf::Vertex(point2, lineCol);
 
 	initRotCenShape();
+	calculateEngles();
 }
   
 void RotatingLine::coutData(){
@@ -58,4 +59,26 @@ void RotatingLine::coutRotCenData(){
 		  << " b = " << (int)rotCenterColor.b<< " a = " << (int)rotCenterColor.a << endl;
 	cout << "rotation center visualisation radius: " <<  rotCenterRadius  << endl;
 	cout << "++++++++++++++rotation center data+++++++++++++++++++++" << endl;
+}
+
+void RotatingLine::calculateEngles(){
+
+	sf::Vertex * spesCoords  = getPosToCenter();
+//	engle1 = 
+	
+}
+
+sf::Vertex * RotatingLine::getPosToCenter(){
+
+	sf::Vertex result[2];
+	return &result[0];		
+
+}
+
+void RotatingLine::addEngle(double radians){
+
+	lineVert[0].position.x += cos(radians);
+	lineVert[0].position.y += sin(radians);
+	lineVert[1].position.x -= cos(radians);
+	lineVert[1].position.y -= sin(radians);
 }
