@@ -18,9 +18,9 @@ void RotatingLine::coutData(){
   
     cout << "point1 position: x = " << lineVert[0].position.x << " y = " << lineVert[0].position.y << endl;
     cout << "point2 position: x = " << lineVert[1].position.x << " y = " << lineVert[1].position.y << endl;
-    cout<< "rotation center: x = " << rotatingCenter.x<< " y = " << rotatingCenter.y  << endl;
 	cout << "color : r = " << (int)lineCol.r << " g = " << (int)lineCol.g << " b = " << (int)lineCol.b 
 		  << " a = " << (int)lineCol.a	<<endl;
+	coutRotCenData();
 }
 
 void RotatingLine::setRenderWindow(sf::RenderWindow * rWindow){
@@ -39,14 +39,23 @@ void RotatingLine::initRotCenShape(){
 
 	rotCenterShape.setRadius(rotCenterRadius);
 	rotCenterShape.setFillColor(rotCenterColor);
-	rotCenterShape.setPosition(rotatingCenter);	
+	rotCenterShape.setPosition(rotatingCenter.x - rotCenterRadius, rotatingCenter.y - rotCenterRadius);	
 
 }
 
-void RotatingLine::drawRotCenter(float radius){
+void RotatingLine::drawRotCenter(){
 	
-	sf::CircleShape point;
 	
-//	rWindow->draw();	
+	rWindow->draw(rotCenterShape);	
 	
+}
+
+void RotatingLine::coutRotCenData(){
+
+	cout << "++++++++++++++rotation center data+++++++++++++++++++++" << endl;
+    cout<< "rotation center: x = " << rotatingCenter.x<< " y = " << rotatingCenter.y  << endl;
+	cout << "rotation center color: r = " << (int)rotCenterColor.r << " g = " << (int)rotCenterColor.g
+		  << " b = " << (int)rotCenterColor.b<< " a = " << (int)rotCenterColor.a << endl;
+	cout << "rotation center visualisation radius: " <<  rotCenterRadius  << endl;
+	cout << "++++++++++++++rotation center data+++++++++++++++++++++" << endl;
 }

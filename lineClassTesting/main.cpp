@@ -29,6 +29,7 @@ int main(){
 		}
 		window.clear(sf::Color::White);
 		rotLine.drawLine();
+		rotLine.drawRotCenter();
 		window.display();
 	}
 }

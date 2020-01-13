@@ -13,9 +13,10 @@ class RotatingLine{
 		sf::CircleShape		rotCenterShape;
 		sf::Color			rotCenterColor = sf::Color::Red;
 		double 				rotCenterRadius = 4;
+
+		void initRotCenShape();
 		// rotatingCenter+++++++++++++++++++
 		
-		void initRotCenShape();
     public:
         RotatingLine(sf::Vector2f point1, sf::Vector2f point2, sf::Vector2f rotCenter);
         void drawLine();
@@ -23,7 +24,8 @@ class RotatingLine{
 
         void coutData();
 	   	//rotatingCenter+++++++++++++++++++	
-		void drawRotCenter(float radius);
+		void drawRotCenter();
+		void coutRotCenData();
 		//rotatingCente++++++++++++++++++++
   
 };
