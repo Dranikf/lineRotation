@@ -1,4 +1,5 @@
 #include "RotatingLine.h"
+#include <math.h>
 
 using namespace std;
 
@@ -63,15 +64,26 @@ void RotatingLine::coutRotCenData(){
 
 void RotatingLine::calculateEngles(){
 
-	sf::Vertex * spesCoords  = getPosToCenter();
-//	engle1 = 
+	sf::Vector2f * spesCoords = new sf::Vector2f[2];
+   	getPosToCenter(spesCoords);
+
+	cout << spesCoords[0].x << " " << spesCoords[0].y  << endl;
+	cout << spesCoords[1].x << " " << spesCoords[1].y  << endl;
+
+	engle1 = acos(spesCoords[0].x /(sqrt(pow(spesCoords[0].x, 2) + pow(spesCoords[0].y , 2))));		
+	
+	cout << pow(spesCoords[0].x, 2)  << endl;
+	cout << engle1 << endl;
+	cout <<cos(engle1)  << endl;
+
+	delete [] spesCoords;
 	
 }
 
-sf::Vertex * RotatingLine::getPosToCenter(){
+void  RotatingLine::getPosToCenter(sf::Vector2f * position){
 
-	sf::Vertex result[2];
-	return &result[0];		
+	position[0] = lineVert[0].position - rotatingCenter;
+	position[1] = lineVert[1].position - rotatingCenter;
 
 }
 

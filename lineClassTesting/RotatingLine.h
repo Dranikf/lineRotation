@@ -19,7 +19,7 @@ class RotatingLine{
 		void initRotCenShape();
 		// rotatingCenter+++++++++++++++++++
 		void calculateEngles(); // calculate engles by rotCenter and positions
-		sf::Vertex * getPosToCenter();	//returns  points in coords where rotCenter is (0;0)	
+		void getPosToCenter(sf::Vector2f * position);	//returns  points in coords where rotCenter is (0;0)	
 
     public:
         RotatingLine(sf::Vector2f point1, sf::Vector2f point2, sf::Vector2f rotCenter);
