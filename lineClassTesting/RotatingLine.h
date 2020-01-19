@@ -27,6 +27,11 @@ class RotatingLine{
 		void setRenderWindow(sf::RenderWindow * rWindow);
 		void addEngle(double radians);
 
+		void add1PointX(float val);
+		void add1PointY(float val);
+		void add2PointX(float val);
+		void add2PointY(float val);
+
         void coutData();
 	   	//rotatingCenter+++++++++++++++++++	
 		void drawRotCenter();

@@ -25,6 +25,20 @@ int main(){
 					window.close();
 				}
 
+				if (event.type == sf::Event::KeyReleased){
+                    if (event.key.code == sf::Keyboard::W)
+                    	rotLine.add1PointY(-2);
+                    if (event.key.code == sf::Keyboard::S)
+                        rotLine.add1PointY(2);
+					if (event.key.code == sf::Keyboard::A)
+                    	rotLine.add1PointX(-2);
+                    if (event.key.code == sf::Keyboard::D)
+                        rotLine.add1PointX(2);
+
+					rotLine.coutData();
+                }
+
+
 		
 		}
 		window.clear(sf::Color::White);

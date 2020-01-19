@@ -23,6 +23,7 @@ void RotatingLine::coutData(){
 	cout << "color : r = " << (int)lineCol.r << " g = " << (int)lineCol.g << " b = " << (int)lineCol.b 
 		  << " a = " << (int)lineCol.a	<<endl;
 	coutRotCenData();
+	cout << "engle1 = " <<engle1 << "engle2 = " << engle2 << endl;
 }
 
 void RotatingLine::setRenderWindow(sf::RenderWindow * rWindow){
@@ -70,14 +71,24 @@ void RotatingLine::calculateEngles(){
 	cout << spesCoords[0].x << " " << spesCoords[0].y  << endl;
 	cout << spesCoords[1].x << " " << spesCoords[1].y  << endl;
 
-	engle1 = acos(spesCoords[0].x /(sqrt(pow(spesCoords[0].x, 2) + pow(spesCoords[0].y , 2))));		
+	// проверка на тот случай, если угол в четвуртой четверти, надо считать по арксинусу
+	// дело в том, что именно в той четверти арккосинус аналогичен, арккосинусу 1ой четверти
+	// -у так как ось у направлена вниз	
+	if((spesCoords[0].y > 0 and spesCoords[0].x > 0) or (spesCoords[0].y > 0 and spesCoords[0].x < 0))
+		engle1 = asin((-spesCoords[0].y) /(sqrt(pow(spesCoords[0].x, 2) + pow(spesCoords[0].y , 2))));		
+	else
+		engle1 = acos(spesCoords[0].x /(sqrt(pow(spesCoords[0].x, 2) + pow(spesCoords[0].y , 2))));		
 	
-	cout << pow(spesCoords[0].x, 2)  << endl;
+	// аналагично и для второго угла
+	if((spesCoords[1].y > 0 and spesCoords[1].x > 0) or (spesCoords[1].y > 0 and spesCoords[1].x < 0))
+		engle2 =  asin((-spesCoords[1].y) /(sqrt(pow(spesCoords[1].x, 2) + pow(spesCoords[1].y , 2))));
+	else
+		engle2 =  acos(spesCoords[1].x /(sqrt(pow(spesCoords[1].x, 2) + pow(spesCoords[1].y , 2)))); 
+
 	cout << engle1 << endl;
-	cout <<cos(engle1)  << endl;
+	cout << engle2 << endl;
 
 	delete [] spesCoords;
-	
 }
 
 void  RotatingLine::getPosToCenter(sf::Vector2f * position){
@@ -94,3 +105,9 @@ void RotatingLine::addEngle(double radians){
 	lineVert[1].position.x -= cos(radians);
 	lineVert[1].position.y -= sin(radians);
 }
+	
+void RotatingLine::add1PointX(float val){lineVert[0].position.x += val;calculateEngles();}
+void RotatingLine::add1PointY(float val){lineVert[0].position.y += val;calculateEngles();}
+
+void RotatingLine::add2PointX(float val){lineVert[1].position.x += val;calculateEngles();}
+void RotatingLine::add2PointY(float val){lineVert[1].position.y += val;calculateEngles();}
