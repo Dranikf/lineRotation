@@ -14,12 +14,19 @@ class RotatingLine{
 		sf::CircleShape		rotCenterShape;
 		sf::Color			rotCenterColor = sf::Color::Red;
 		float 				rotCenterRadius = 4;
-		float 				engle1 = 0 , engle2 = 0;
-
 		void initRotCenShape();
 		// rotatingCenter+++++++++++++++++++
+		
+		// polar+++++++++++++++++++++++++++
+		float 				engle1 = 0 , engle2 = 0;
+		float 				ro1 , ro2;
+		// polar+++++++++++++++++++++++++++
+
+		Vector2f 			spesCoords[2];// coords where rotCenter is (0;0)
+
 		void calculateEngles(); // calculate engles by rotCenter and positions
-		void getPosToCenter(sf::Vector2f * position);	//returns  points in coords where rotCenter is (0;0)	
+		void calculateRo();
+		void calPosToCenterer();	//calculate spesCoords	
 
     public:
         RotatingLine(sf::Vector2f point1, sf::Vector2f point2, sf::Vector2f rotCenter);
