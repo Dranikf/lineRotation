@@ -67,8 +67,6 @@ void RotatingLine::calculateEngles(){
 
 	calculateRo();
 
-	cout << spesCoords[0].x << " " << spesCoords[0].y  << endl;
-	cout << spesCoords[1].x << " " << spesCoords[1].y  << endl;
 
 	engle[0] = acos(spesCoords[0].x /ro[0]);		
 	engle[0] *= (spesCoords[0].y > 0) ? -1:1;// в случае, если Y положительный, надо домножить на -1 
@@ -127,3 +125,11 @@ void RotatingLine::calPosByEngRo(int index){
 	cout << lineVert[index].position.x << endl;
 
 }
+
+
+void RotatingLine::setRotCenPos(sf::Vector2f rotCen){
+	rotatingCenter = rotCen;
+	initRotCenShape();
+	calculateEngles();
+}
+

@@ -50,6 +50,7 @@ class RotatingLine{
 	   	//rotatingCenter+++++++++++++++++++	
 		void drawRotCenter();
 		void coutRotCenData();
+		void setRotCenPos(sf::Vector2f rotCen);
 		//rotatingCente++++++++++++++++++++
   
 };

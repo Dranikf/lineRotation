@@ -6,6 +6,10 @@ using namespace std;
 
 const int windWidth = 700 , windHeigth = 300;
 
+sf::Clock mClock;
+
+const float rotationSpeed = 0.5;
+
 int main(){
 
 
@@ -16,6 +20,8 @@ int main(){
 	
 	rotLine.coutData();
 
+	bool Qc = false, Ec = false;
+	sf::Time tempTime;
 
 	while(window.isOpen()){
 
@@ -26,35 +32,36 @@ int main(){
 				}
 
 				if (event.type == sf::Event::KeyReleased){
-                    if (event.key.code == sf::Keyboard::W)
-                    	rotLine.add1PointY(-2);
-                    if (event.key.code == sf::Keyboard::S)
-                        rotLine.add1PointY(2);
-					if (event.key.code == sf::Keyboard::A)
-                    	rotLine.add1PointX(-2);
-                    if (event.key.code == sf::Keyboard::D)
-                        rotLine.add1PointX(2);
-					if (event.key.code == sf::Keyboard::I)
-                    	rotLine.add2PointY(-2);
-                    if (event.key.code == sf::Keyboard::K)
-                        rotLine.add2PointY(2);
-					if (event.key.code == sf::Keyboard::J)
-                    	rotLine.add2PointX(-2);
-                    if (event.key.code == sf::Keyboard::L)
-                        rotLine.add2PointX(2);
+					if (event.key.code == sf::Keyboard::Q) Qc = false;
+					if (event.key.code == sf::Keyboard::E) Ec = false;
+
+	           }
+
+				if (event.type == sf::Event::KeyPressed){
+
 					if (event.key.code == sf::Keyboard::Q){
-						rotLine.addEngle1(0.2);
-						rotLine.addEngle2(0.2);
+						if(Qc == false ){mClock.restart(); Qc = true;}
+						tempTime = mClock.getElapsedTime();
+						rotLine.addEngle1(tempTime.asSeconds() * rotationSpeed);
+						rotLine.addEngle2(tempTime.asSeconds() * rotationSpeed);
+						mClock.restart();
 					}
 					if (event.key.code == sf::Keyboard::E){
-						rotLine.addEngle1(-0.2);
-						rotLine.addEngle2(-0.2);
+						if(Ec == false ){mClock.restart(); Ec = true;}
+						tempTime = mClock.getElapsedTime();
+						rotLine.addEngle1(-tempTime.asSeconds() * rotationSpeed);
+						rotLine.addEngle2(-tempTime.asSeconds() * rotationSpeed);
+						mClock.restart();
 					}
 
-
 					rotLine.coutData();
-                }
 
+
+				}
+
+				if (sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+					rotLine.setRotCenPos((sf::Vector2f)sf::Mouse::getPosition(window));					
+				}
 
 		
 		}
