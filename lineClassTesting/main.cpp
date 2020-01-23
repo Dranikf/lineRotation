@@ -41,10 +41,12 @@ int main(){
 
 					if (event.key.code == sf::Keyboard::Q){
 						if(Qc == false ){mClock.restart(); Qc = true;}
-						tempTime = mClock.getElapsedTime();
-						rotLine.addEngle1(tempTime.asSeconds() * rotationSpeed);
-						rotLine.addEngle2(tempTime.asSeconds() * rotationSpeed);
-						mClock.restart();
+						else{
+							tempTime = mClock.getElapsedTime();
+							rotLine.addEngle1(tempTime.asSeconds() * rotationSpeed);
+							rotLine.addEngle2(tempTime.asSeconds() * rotationSpeed);
+							mClock.restart();
+						}
 					}
 					if (event.key.code == sf::Keyboard::E){
 						if(Ec == false ){mClock.restart(); Ec = true;}
@@ -65,6 +67,14 @@ int main(){
 
 		
 		}
+
+		tempTime = mClock.getElapsedTime();
+		mClock.restart();
+
+		rotLine.addEngle1(tempTime.asSeconds() * rotationSpeed);
+        rotLine.addEngle2(tempTime.asSeconds() * rotationSpeed);
+
+
 		window.clear(sf::Color::White);
 		rotLine.drawLine();
 		rotLine.drawRotCenter();

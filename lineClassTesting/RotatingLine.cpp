@@ -122,7 +122,6 @@ void RotatingLine::calPosByEngRo(int index){
 
 	lineVert[index].position.y = rotatingCenter.y - (sin(engle[index]) * ro[index]);
 	lineVert[index].position.x = rotatingCenter.x + (cos(engle[index]) * ro[index]);
-	cout << lineVert[index].position.x << endl;
 
 }
 
