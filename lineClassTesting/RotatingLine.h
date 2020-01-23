@@ -18,21 +18,28 @@ class RotatingLine{
 		// rotatingCenter+++++++++++++++++++
 		
 		// polar+++++++++++++++++++++++++++
-		float 				engle1 = 0 , engle2 = 0;
-		float 				ro1 , ro2;
+		float 				engle[2];
+		float 				ro[2];	
 		// polar+++++++++++++++++++++++++++
 
-		Vector2f 			spesCoords[2];// coords where rotCenter is (0;0)
+		sf::Vector2f 			spesCoords[2];// coords where rotCenter is (0;0)
 
 		void calculateEngles(); // calculate engles by rotCenter and positions
 		void calculateRo();
 		void calPosToCenterer();	//calculate spesCoords	
+		void calculatePositions();
+		
+		void calPosByEngRo(int index); // calculate points positions by engle (index of calculating point)
 
     public:
         RotatingLine(sf::Vector2f point1, sf::Vector2f point2, sf::Vector2f rotCenter);
         void drawLine();
 		void setRenderWindow(sf::RenderWindow * rWindow);
-		void addEngle(double radians);
+
+		// доворот углов********************
+		void addEngle1(double radians);
+		void addEngle2(double radians);
+		// доворот углов********************
 
 		void add1PointX(float val);
 		void add1PointY(float val);

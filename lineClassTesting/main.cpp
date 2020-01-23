@@ -42,6 +42,14 @@ int main(){
                     	rotLine.add2PointX(-2);
                     if (event.key.code == sf::Keyboard::L)
                         rotLine.add2PointX(2);
+					if (event.key.code == sf::Keyboard::Q){
+						rotLine.addEngle1(0.2);
+						rotLine.addEngle2(0.2);
+					}
+					if (event.key.code == sf::Keyboard::E){
+						rotLine.addEngle1(-0.2);
+						rotLine.addEngle2(-0.2);
+					}
 
 
 					rotLine.coutData();

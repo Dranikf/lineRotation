@@ -23,7 +23,7 @@ void RotatingLine::coutData(){
 	cout << "color : r = " << (int)lineCol.r << " g = " << (int)lineCol.g << " b = " << (int)lineCol.b 
 		  << " a = " << (int)lineCol.a	<<endl;
 	coutRotCenData();
-	cout << "engle1 = " <<engle1 << " " << "engle2 = " << engle2 << endl;
+	cout << "engle[0] = " <<engle[0] << " " << "engle[1] = " << engle[1] << endl;
 }
 
 void RotatingLine::setRenderWindow(sf::RenderWindow * rWindow){
@@ -65,37 +65,42 @@ void RotatingLine::coutRotCenData(){
 
 void RotatingLine::calculateEngles(){
 
-	sf::Vector2f * spesCoords = new sf::Vector2f[2];
-   	calPosToCenterer();
+	calculateRo();
 
 	cout << spesCoords[0].x << " " << spesCoords[0].y  << endl;
 	cout << spesCoords[1].x << " " << spesCoords[1].y  << endl;
 
-	engle1 = acos(spesCoords[0].x /(sqrt(pow(spesCoords[0].x, 2) + pow(spesCoords[0].y , 2))));		
-	engle1 *= (spesCoords[0].y > 0) ? -1:1;// в случае, если Y положительный, надо домножить на -1 
+	engle[0] = acos(spesCoords[0].x /ro[0]);		
+	engle[0] *= (spesCoords[0].y > 0) ? -1:1;// в случае, если Y положительный, надо домножить на -1 
 
-	engle2 = acos(spesCoords[1].x /(sqrt(pow(spesCoords[1].x, 2) + pow(spesCoords[1].y , 2))));
-	engle2 *= (spesCoords[1].y > 0) ? -1:1;// аналогично первой точке
+	engle[1] = acos(spesCoords[1].x /ro[1]);
+	engle[1] *= (spesCoords[1].y > 0) ? -1:1;// аналогично первой точке
 
-	cout << engle1 << endl;
-	cout << engle2 << endl;
-
-	delete [] spesCoords;
 }
 
-void  RotatingLine::calPosToCenterer(sf::Vector2f * position){
+void  RotatingLine::calPosToCenterer(){
 
 	spesCoords[0] = lineVert[0].position - rotatingCenter;
 	spesCoords[1] = lineVert[1].position - rotatingCenter;
 
 }
 
-void RotatingLine::addEngle(double radians){
+void RotatingLine::addEngle1(double radians){
+	
+	engle[0] += radians;
+	if (engle[0] > 3.14) engle[0] =  (-6.28) + engle[0]; 
+	if (engle[0] < -3.14) engle[0] = 6.28 + engle[0];
+	calPosByEngRo(0);	
 
-	lineVert[0].position.x += cos(radians);
-	lineVert[0].position.y += sin(radians);
-	lineVert[1].position.x -= cos(radians);
-	lineVert[1].position.y -= sin(radians);
+}
+
+void RotatingLine::addEngle2(double radians){
+
+	engle[1] += radians;
+	if (engle[1] > 3.14) engle[0] =  (-6.28) + engle[0];         
+    if (engle[1] < -3.14) engle[0] = 6.28 + engle[0];
+	calPosByEngRo(1);
+
 }
 	
 void RotatingLine::add1PointX(float val){lineVert[0].position.x += val;calculateEngles();}
@@ -105,6 +110,20 @@ void RotatingLine::add2PointX(float val){lineVert[1].position.x += val;calculate
 void RotatingLine::add2PointY(float val){lineVert[1].position.y += val;calculateEngles();}
 
 void RotatingLine::calculateRo(){
-	ro1 = 
+
+	calPosToCenterer();
+
+	ro[0] = sqrt(pow(spesCoords[0].x, 2) + pow(spesCoords[0].y ,2));
+	ro[1] = sqrt(pow(spesCoords[1].x, 2) + pow(spesCoords[1].y ,2));
+
+}
+
+void RotatingLine::calPosByEngRo(int index){
+
+	calculateRo();
+
+	lineVert[index].position.y = rotatingCenter.y - (sin(engle[index]) * ro[index]);
+	lineVert[index].position.x = rotatingCenter.x + (cos(engle[index]) * ro[index]);
+	cout << lineVert[index].position.x << endl;
 
 }
