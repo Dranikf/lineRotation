@@ -6,14 +6,16 @@ using namespace std;
 
 const int windWidth = 700 , windHeigth = 300;
 
+extern sf::Color DefaultPointsColor;
 
 int main(){
 
 
 	sf::RenderWindow window(sf::VideoMode(windWidth, windHeigth), "hello line");
 	
-	Point p1();
-
+	//DefaultPointsColor = sf::Color::Blue;
+	Point p1(sf::Vector2f(20.f , 20.f), 10);
+	p1.coutData();
 
 	while(window.isOpen()){
 

@@ -6,7 +6,6 @@
 
 using namespace std;
 
-
 class Point{
 
 	private:
@@ -16,7 +15,6 @@ class Point{
 
 	public: 
 		
-		sf::Color DefaultPointsColor = sf::Color::Blue;
 		Point(sf::Vector2f position, float radius);
 		void coutData();
 };
