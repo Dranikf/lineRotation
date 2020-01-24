@@ -1,5 +1,6 @@
-#include "iostream"
+#include <iostream>
 #include <SFML/Graphics.hpp>
+#include "Point.h"
 
 using namespace std;
 
@@ -11,7 +12,7 @@ int main(){
 
 	sf::RenderWindow window(sf::VideoMode(windWidth, windHeigth), "hello line");
 	
-
+	Point p1();
 
 
 	while(window.isOpen()){
