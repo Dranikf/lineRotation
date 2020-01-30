@@ -8,6 +8,7 @@ Point::Point(sf::Vector2f position, float radius){
 	this->radius = radius;
 	this->color = DefaultPointsColor;
 
+	initShape();
 }
 
 void Point::coutData(){
@@ -19,3 +20,25 @@ void Point::coutData(){
 	cout << "+++++++++++++++++++++++++++++" << endl;
 
 }
+
+void Point::initShape(){
+
+	shape.setRadius(radius);
+	shape.setFillColor(color);
+	shape.setPosition(position);
+
+}
+
+void Point::setRenderWindow(sf::RenderWindow * rWindow){
+
+	this->rWindow = rWindow;
+
+}
+
+void Point::draw(){
+
+	rWindow->draw(shape);
+
+}
+
+sf::Vector2f Point::getPosition(){ return position;}
