@@ -68,11 +68,8 @@ void RotatingLine::calculateEngles(){
 	calculateRo();
 
 
-	engle[0] = acos(spesCoords[0].x /ro[0]);		
-	engle[0] *= (spesCoords[0].y > 0) ? -1:1;// в случае, если Y положительный, надо домножить на -1 
-
-	engle[1] = acos(spesCoords[1].x /ro[1]);
-	engle[1] *= (spesCoords[1].y > 0) ? -1:1;// аналогично первой точке
+	engle[0] = calculateEngle(spesCoords[0], ro[0]);
+	engle[1] = calculateEngle(spesCoords[1], ro[1]);
 
 }
 
