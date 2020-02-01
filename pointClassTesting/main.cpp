@@ -34,7 +34,7 @@ int main(){
 
 		window.clear(sf::Color::White);
 		
-		p1.draw();
+		p1.draw(&window);
 
 		window.display();
 	}

@@ -9,8 +9,12 @@ const int windWidth = 700 , windHeigth = 300;
 int main(){
 
 	sf::RenderWindow window(sf::VideoMode(windWidth, windHeigth), "hello line");
+	
+	RLC_initData initer;
+	initer.startPointPosition = sf::Vector2f(20.f, 20.f);
+	initer.rWindow = &window;
 
-	RotLineController rlController(sf::Vector2f(20, 20));	
+	RotLineController rlController(&initer);	
 
 	while(window.isOpen()){
 
@@ -43,9 +47,7 @@ int main(){
 
 
 		window.clear(sf::Color::White);
-		cout<< "hello 1" << endl;
 		rlController.draw();	
-		cout << "hello 2" << endl;
 		window.display();
 	}
 }

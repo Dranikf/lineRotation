@@ -24,6 +24,7 @@ class Point{
 		void coutData();
 		void setRenderWindow(sf::RenderWindow * rWindow);
 		void draw();
+		void draw(sf::RenderWindow * rWindow);
 
 		sf::Vector2f getPosition();
 };
