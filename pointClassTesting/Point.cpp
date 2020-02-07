@@ -44,3 +44,8 @@ void Point::draw(){
 sf::Vector2f Point::getPosition(){ return position;}
 
 void Point::draw(sf::RenderWindow * rWindow){rWindow->draw(shape);}
+
+void Point::setPosition(sf::Vector2f position){
+	this->position = position;	
+	initShape();
+}

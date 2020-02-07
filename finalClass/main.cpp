@@ -8,7 +8,7 @@ const int windWidth = 700 , windHeigth = 300;
 
 int main(){
 
-	sf::RenderWindow window(sf::VideoMode(windWidth, windHeigth), "hello line");
+	sf::RenderWindow window(sf::VideoMode(windWidth, windHeigth), "final comlition");
 	
 	RLC_initData initer;
 	initer.startPointPosition = sf::Vector2f(20.f, 20.f);
