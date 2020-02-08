@@ -5,6 +5,7 @@
 #include <math.h>
 
 float calculateEngle(sf::Vector2f, float);
-
+float calculateLength(sf::Vector2f);
+float calculateEngle(sf::Vector2f);
 
 #endif

@@ -27,6 +27,7 @@ class Point{
 		void draw(sf::RenderWindow * rWindow);
 
 		sf::Vector2f getPosition();
+		void setPosition(sf::Vector2f position);
 };
 
 #endif

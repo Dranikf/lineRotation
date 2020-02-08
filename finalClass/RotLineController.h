@@ -11,7 +11,7 @@ struct RLC_initData{
 	sf::RenderWindow*	rWindow;
    	sf::Vector2f		point1StartPos= sf::Vector2f(-10.f, 0); // координаты первой из точек соответсвующих концам вращающейся линии
 	float				p2Length = 0; // длинна от центра вращения до второй точки строящей вращ. линию
-
+	float 				pointRadius = 4;
 };
 
 class RotLineController{

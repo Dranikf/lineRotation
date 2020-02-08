@@ -5,6 +5,8 @@
 #include <math.h>
 
 float calculateEngle(sf::Vector2f, float);
-
+float calculateLength(sf::Vector2f);
+float calculateEngle(sf::Vector2f);
+sf::Vector2f calculatePosition(float engle, float radius);
 
 #endif

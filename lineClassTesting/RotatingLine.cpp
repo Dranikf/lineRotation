@@ -116,9 +116,11 @@ void RotatingLine::calculateRo(){
 void RotatingLine::calPosByEngRo(int index){
 
 	calculateRo();
+	
+	sf::Vector2f tempPos = calculatePosition(engle[index], ro[index]);
 
-	lineVert[index].position.y = rotatingCenter.y - (sin(engle[index]) * ro[index]);
-	lineVert[index].position.x = rotatingCenter.x + (cos(engle[index]) * ro[index]);
+	lineVert[index].position.y = rotatingCenter.y - tempPos.y;
+	lineVert[index].position.x = rotatingCenter.x + tempPos.x;
 
 }
 

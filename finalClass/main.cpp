@@ -11,8 +11,10 @@ int main(){
 	sf::RenderWindow window(sf::VideoMode(windWidth, windHeigth), "final comlition");
 	
 	RLC_initData initer;
-	initer.startPointPosition = sf::Vector2f(20.f, 20.f);
+	initer.startPointPosition = sf::Vector2f(50.f, 50.f);
 	initer.rWindow = &window;
+	initer.point1StartPos = sf::Vector2f(10.f , -20.f);
+	initer.p2Length = 30;
 
 	RotLineController rlController(&initer);	
 
