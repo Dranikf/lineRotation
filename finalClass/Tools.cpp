@@ -20,3 +20,9 @@ float calculateEngle(sf::Vector2f vecDirection){
 	return calculateEngle(vecDirection , calculateLength(vecDirection));
 
 }
+
+sf::Vector2f calculatePosition(float engle, float radius){
+
+	return sf::Vector2f(cos(engle) * radius , sin(engle) * radius);
+
+}

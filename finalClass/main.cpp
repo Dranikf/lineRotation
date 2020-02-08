@@ -13,8 +13,8 @@ int main(){
 	RLC_initData initer;
 	initer.startPointPosition = sf::Vector2f(50.f, 50.f);
 	initer.rWindow = &window;
-	initer.point1StartPos = sf::Vector2f(10.f , -20.f);
-	initer.p2Length = 30;
+	initer.point1StartPos = sf::Vector2f(-10.f , 0.f);
+	initer.p2Length = 100;
 
 	RotLineController rlController(&initer);	
 

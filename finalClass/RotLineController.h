@@ -21,6 +21,8 @@ class RotLineController{
 		forward_list<Point *> 	points; // точки которые зарегистированы на карте (все кроме активной)
 		Point * 				activePoint = NULL; // точка которая на данный момент является центром вращения для линнии
 		sf::RenderWindow* rWindow;
+
+		sf::Vector2f 		calcPoint2Position(RLC_initData * initData);
 	
 	public:
 		RotLineController(RLC_initData * initData);
