@@ -25,7 +25,7 @@ void Point::initShape(){
 
 	shape.setRadius(radius);
 	shape.setFillColor(color);
-	shape.setPosition(position);
+	shape.setPosition(position.x - radius, position.y - radius);
 
 }
 
